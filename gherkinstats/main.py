@@ -9,10 +9,15 @@ feature = []
 background = []
 scenarios = []
 
+#regular expressions
+tags_re = re.compile("\@[a-z|A-Z]*")
+feature_re = re.compile()
+
 f = open(sys.argv[1], mode='r')
 
 all_lines = f.readlines()
 
 for line in all_lines:
-    if re.search('\@.'):
-        tags.append()
+    pre_tags = tags_re.findall(line)
+    if pre_tags:
+        tags = pre_tags
